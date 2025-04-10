@@ -1,2 +1,2 @@
-pid = 1
+name = ""
 rm = rm_init
