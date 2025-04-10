@@ -1,6 +1,8 @@
 var _type = async_load[? "type"]
 
-// 
+#region connection handling
+
+// connected
 if _type == network_type_connect {
     var _sock = async_load[? "socket"]
     trace("socket:  " + string(_sock))
@@ -37,7 +39,12 @@ else if _type == network_type_disconnect {
     }
         
 }
-// data handling (the worst part)
+
+#endregion
+
+#region data handling
+
+// ts pmo
 else if _type == network_type_data {
 	var _buffer = async_load[? "buffer"]
 	var _sock = async_load[? "id"]
@@ -128,3 +135,5 @@ else if _type == network_type_data {
 			break
 	}
 }
+
+#endregion

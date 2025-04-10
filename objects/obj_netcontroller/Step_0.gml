@@ -44,9 +44,11 @@ if menu {
     
     // disconnect
     else if keyboard_check_pressed(vk_backspace) {
-        network_destroy(server)
-        clients = []
-        client_insts = []
+        // rebirth
+        instance_destroy(obj_netcontroller)
+        with instance_create_depth(0, 0, 0, obj_netcontroller) {
+            name_entry = other.name_entry
+        }
     }
 }
 if instance_exists(obj_player) {

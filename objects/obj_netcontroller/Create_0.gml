@@ -13,7 +13,7 @@ enum messages {
 server = -1
 is_server = false
 maxclients = 16
-clients = array_create(maxclients)
+clients = array_create(maxclients) // my perfect solution to clients ids
 client_insts = array_create(maxclients)
 port = 25565 //love the minecraft port gahhhhhh
 ip = "127.0.0.1"
