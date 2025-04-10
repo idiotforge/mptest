@@ -1,6 +1,9 @@
 if keyboard_check_pressed(ord("M")) {
     menu = !menu
 }
+if keyboard_check_pressed(vk_f3) {
+    debug_hud = !debug_hud
+}
 
 if menu {
     

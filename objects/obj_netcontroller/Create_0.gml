@@ -20,6 +20,7 @@ ip = "127.0.0.1"
 name_entry = random_name()
 sock = 0
 menu = false
+debug_hud = false
 function trace() {
 	var r = string(argument[0]), i;
 	for (i = 1; i < argument_count; i++) {
@@ -48,9 +49,9 @@ function random_name() {
     "Flips", "Dist", "Beer", "Gaming", "Pizza", "TT", "_", "Wii", "U", "Cena", "Bringus", "Studios",
     "Steel", "Newell", "Iori", "Guy", "Hedgehog", "Echidna", "Prower", "Bro", "Pig", "Leno", "NoiseHair",
     "Kong", "Gangnam", "Kojima", "Game", "Tralala", "Unc", "Hero", "Chungus", "Cat", "Pearl", "Kazuma",
-    "Rizztein", "Outlet", "Fucka"
+    "Rizztein", "Outlet", "Fucka", "YT", "TTV"
     )
-    for (var _c = irandom_range(2, 5); _c > 0; _c--) {
+    for (var _c = irandom_range(0, 5); _c > 0; _c--) {
         _name += string(irandom(9))
     }
     return _name

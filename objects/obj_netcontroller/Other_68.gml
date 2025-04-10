@@ -82,7 +82,7 @@ else if _type == network_type_data {
                 buffer_write(_data, buffer_u8, messages.updateclients)
                 buffer_write(_data, buffer_string, json_stringify(clients))
                 for (var _i = 1; _i < array_length(clients); _i++) {
-                    if clients[_i] != 0
+                    if clients[_i] != 0 && _sock != _i
         			    network_send_packet(_i, _data, buffer_get_size(_data))
         		}
             }
