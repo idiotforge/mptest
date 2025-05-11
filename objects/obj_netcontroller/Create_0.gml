@@ -4,6 +4,10 @@
  *     - idiotforge
  */
 
+if GM_build_type == "run" {
+    multiclientsort()
+}
+
 enum messages {
 	playerjoin, // you give the server your name
 	playerinit, // server assigns you an id
@@ -11,6 +15,7 @@ enum messages {
 	playerdata // player data
 }
 server = -1
+depth = -9001
 is_server = false
 maxclients = 16
 clients = array_create(maxclients) // my perfect solution to clients ids
@@ -19,15 +24,7 @@ port = 25565 //love the minecraft port gahhhhhh
 ip = "127.0.0.1"
 name_entry = random_name()
 sock = 0
-menu = false
-debug_hud = false
-function trace() {
-	var r = string(argument[0]), i;
-	for (i = 1; i < argument_count; i++) {
-	    r += ", " + string(argument[i])
-	}
-	show_debug_message(r)
-}
+menu = true
 function random_name() {
     randomize()
     var _name = choose(

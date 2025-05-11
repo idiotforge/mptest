@@ -9,8 +9,8 @@
   "name":"obj_otherplayer",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/Objects.yy",
+    "name":"Net",
+    "path":"folders/Objects/Net.yy",
   },
   "parentObjectId":null,
   "persistent":false,
@@ -31,8 +31,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_bup",
-    "path":"sprites/spr_bup/spr_bup.yy",
+    "name":"spr_player_idle",
+    "path":"sprites/spr_player_idle/spr_player_idle.yy",
   },
   "spriteMaskId":null,
   "visible":true,

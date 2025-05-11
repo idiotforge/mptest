@@ -1,9 +1,6 @@
 if keyboard_check_pressed(ord("M")) {
     menu = !menu
 }
-if keyboard_check_pressed(vk_f3) {
-    debug_hud = !debug_hud
-}
 
 if menu {
     
@@ -47,8 +44,13 @@ if menu {
     
     // disconnect
     else if keyboard_check_pressed(vk_backspace) {
-        // rebirth
+        network_destroy(server)
         instance_destroy(obj_netcontroller)
+        for (var i = 0; i < array_length(client_insts); i++) {
+            if instance_exists(client_insts[i]) && client_insts[i].object_index == obj_otherplayer {
+                instance_destroy(client_insts[i])
+            }
+        }
         with instance_create_depth(0, 0, 0, obj_netcontroller) {
             name_entry = other.name_entry
         }
@@ -56,11 +58,20 @@ if menu {
 }
 if instance_exists(obj_player) {
 	var _data = buffer_create(16, buffer_grow, 1)
+    
 	buffer_write(_data, buffer_u8, messages.playerdata)
-    buffer_write(_data, buffer_u8, 0)
+    
+    buffer_write(_data, buffer_u8, 0) // socket
+    
 	buffer_write(_data, buffer_f16, obj_player.x)
 	buffer_write(_data, buffer_f16, obj_player.y)
+    buffer_write(_data, buffer_s8, obj_player.image_xscale)
+    
+    buffer_write(_data, buffer_u16, obj_player.sprite_index)
+    buffer_write(_data, buffer_u8, floor(obj_player.image_index))
+    
 	buffer_write(_data, buffer_string, string(room))
+    
 	if is_server {
 		for (var _i = 1; _i < array_length(clients); _i++) {
             if clients[_i] != 0 {
